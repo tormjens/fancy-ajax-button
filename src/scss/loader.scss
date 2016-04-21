@@ -1,0 +1,58 @@
+$loader-foreground-color: #04e6b9 !default;
+$loader-background-color: #eaeaea !default;
+$loader-width: 60px !default;
+$loader-height: 60px !default;
+
+.submit-button-loader {
+	position: relative;
+	width: $loader-width;
+	height: $loader-height;
+	text-indent: -9999px;
+	border: none;
+	box-shadow: none;
+	background-color: $loader-background-color;
+	border-radius: 50%;
+	outline: none;
+	.submit-button-loader-progress {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 50%;
+		border: 4px solid transparent;
+		border-bottom-color: transparent;
+		border-right-color: transparent;
+		transition: all .5s ease;
+	}
+	&.submit-button-loader-active {
+		.submit-button-loader-progress {
+			border-color: $loader-foreground-color;
+		}
+	}
+	&.submit-button-loader-complete {
+		.submit-button-loader-progress {
+			border-color: $loader-foreground-color;
+		}
+	}
+	&.submit-button-loader-loading {
+		.submit-button-loader-progress {
+			border-top-color: $loader-foreground-color;
+			border-left-color: $loader-foreground-color;
+			border-bottom-color: transparent;
+			border-right-color: transparent;
+			animation-name: progressSpin;
+		    animation-duration: 1s;
+		    animation-iteration-count: infinite;
+		}
+	}
+}
+
+@keyframes progressSpin {
+    0% {
+    	transform: rotate(0deg);
+    }
+    100% {
+    	transform: rotate(360deg);
+    }
+}
